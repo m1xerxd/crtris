@@ -14,7 +14,7 @@ pipeline{
     stages{
         stage("Checkout"){
             steps{
-                git branch: '*',
+                git branch: 'Docker_Jenk',
                     url: 'https://github.com/m1xerxd/crtris-.git'
             }
         }
