@@ -15,8 +15,7 @@ pipeline{
         stage("Checkout"){
             steps{
                 git branch: '*',
-                    url: 'git@github.com:m1xerxd/crtris-.git'
-                    credentialsId: 'github-ssh-credentials'
+                    url: 'https://github.com/m1xerxd/crtris-.git'
             }
         }
 
