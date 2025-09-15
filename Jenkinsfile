@@ -2,9 +2,8 @@
 pipeline{
     agent any
 
-    options{
-        skipDefaultCheckout(false)
-        timeout(time: 1, unit: 'HOURS')
+    triggers{
+        pollSCM('')
     }
     tools{
         maven 'M3'
