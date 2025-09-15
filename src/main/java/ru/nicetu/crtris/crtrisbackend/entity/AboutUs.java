@@ -15,7 +15,7 @@ import java.util.List;
 @Builder
 public class AboutUs extends BaseEvent{
 
-    @Column(nullable = false)
+    @Column
     private String description;
 
     @OneToMany(mappedBy = "aboutUs", cascade = CascadeType.ALL, orphanRemoval = true)
