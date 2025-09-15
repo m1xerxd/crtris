@@ -27,9 +27,9 @@ pipeline{
 
         stage("Build docker image"){
             steps{
-                script{
-                    docker.build("${DOCKER_IMAGE}:latest", ".")
-                }
+                sh "docker build -t ${DOCKER_IMAGE}:latest ."
+
+                sh "docker images | grep ${DOCKER_IMAGE}"
             }
         }
 
