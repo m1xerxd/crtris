@@ -7,40 +7,34 @@ import org.springframework.stereotype.Service;
 
 import java.nio.charset.StandardCharsets;
 import java.security.Key;
+import java.time.Duration;
 import java.time.Instant;
 import java.util.Date;
 import java.util.Map;
 
 @Service
 public class JwtService {
-
     private final Key key;
-    private final long expirationMinutes;
+    private final Duration expiration;
 
-    public JwtService(
-            @Value("${security.jwt.secret}") String secret,
-            @Value("${security.jwt.expiration-minutes}") long expirationMinutes
-    ) {
+    public JwtService(@Value("${security.jwt.secret}") String secret,
+                      @Value("${security.jwt.expiration}") Duration expiration) {
         this.key = Keys.hmacShaKeyFor(secret.getBytes(StandardCharsets.UTF_8));
-        this.expirationMinutes = expirationMinutes;
+        this.expiration = expiration;
     }
 
-    public String issueToken(String username, String role) {
+    public String generate(String username, String role) {
         Instant now = Instant.now();
-        Instant exp = now.plusSeconds(expirationMinutes * 60);
         return Jwts.builder()
                 .setSubject(username)
                 .addClaims(Map.of("role", role))
                 .setIssuedAt(Date.from(now))
-                .setExpiration(Date.from(exp))
+                .setExpiration(Date.from(now.plus(expiration)))
                 .signWith(key, SignatureAlgorithm.HS256)
                 .compact();
     }
 
-    public Jws<Claims> parseToken(String jwt) throws JwtException {
-        return Jwts.parserBuilder()
-                .setSigningKey(key)
-                .build()
-                .parseClaimsJws(jwt);
+    public Jws<Claims> parse(String token) {
+        return Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token);
     }
 }

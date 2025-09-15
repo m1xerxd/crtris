@@ -3,19 +3,20 @@ spring:
     name: crtris-backend
 
   datasource:
-    url: ${DB_URL:jdbc:postgresql://127.0.0.1:5432/crtrisdb}
-    username: ${DB_USERNAME:crtris}
-    password: ${DB_PASSWORD:adminadmin}
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/crtris}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:postgres}
     driver-class-name: org.postgresql.Driver
 
   jpa:
     open-in-view: false
     hibernate:
-      ddl-auto: ${JPA_DDL_AUTO:update}
+      ddl-auto: ${JPA_DDL_AUTO:none}
     properties:
       hibernate:
         format_sql: true
         jdbc.time_zone: UTC
+        dialect: org.hibernate.dialect.PostgreSQLDialect
 
   flyway:
     enabled: ${FLYWAY_ENABLED:true}
@@ -28,13 +29,13 @@ server:
 logging:
   level:
     org.springframework.security: info
-    org.hibernate.SQL: info
-    org.hibernate.type.descriptor.sql.BasicBinder: trace
 
 security:
   jwt:
-    secret: ${JWT_SECRET:CHANGE_ME_SUPER_SECRET_256_BITS_MIN}
-    expiration-minutes: ${JWT_EXPIRATION_MINUTES:60}
+    secret: ${JWT_SECRET:qwertyuiopasdfghjklzxcvbnm1234567890QWERTYUIOPASDF}
+    expiration: ${JWT_EXPIRATION:PT60M}
 
 cors:
-  allowed-origins: ${CORS_ALLOWED_ORIGINS:http://localhost:3000,http://localhost:5173}
+  allowed-origins:
+    - ${CORS_ORIGIN_1:http://localhost:3000}
+    - ${CORS_ORIGIN_2:http://localhost:5173}

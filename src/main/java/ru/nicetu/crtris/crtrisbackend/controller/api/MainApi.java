@@ -29,7 +29,7 @@ public interface MainApi {
     @ResponseStatus(HttpStatus.OK)
     MainResponse get();
 
-    @Operation(summary = "ADMIN: обновить описание Main")
+    @Operation(summary = "Admin: обновить описание Main")
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "Описание обновлено"),
             @ApiResponse(responseCode = "400", description = "Некорректные данные запроса"),

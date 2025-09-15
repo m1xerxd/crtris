@@ -1,41 +1,27 @@
-package ru.nicetu.crtris.crtrisbackend.controller;
+package ru.nicetu.crtris.crtrisbackend.controller.impl;
 
-import jakarta.validation.constraints.NotBlank;
-import lombok.Data;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.server.ResponseStatusException;
-import ru.nicetu.crtris.crtrisbackend.security.JwtService;
+import ru.nicetu.crtris.crtrisbackend.controller.api.AuthApi;
+import ru.nicetu.crtris.crtrisbackend.dto.request.LoginRequest;
+import ru.nicetu.crtris.crtrisbackend.dto.response.TokenResponse;
+import ru.nicetu.crtris.crtrisbackend.dto.response.CurrentUserResponse;
+import ru.nicetu.crtris.crtrisbackend.service.AuthService;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/auth")
-public class AuthController {
+public class AuthController implements AuthApi {
 
-    private final JwtService jwtService;
+    private final AuthService authService;
 
-    @PostMapping("/login")
-    public TokenResponse login(@RequestBody LoginRequest req) {
-        if ("admin".equals(req.getUsername()) && "admin".equals(req.getPassword())) {
-            String token = jwtService.issueToken(req.getUsername(), "ADMIN");
-            return new TokenResponse(token, "Bearer");
-        }
-        throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Bad credentials");
+    @Override
+    public TokenResponse login(LoginRequest request) {
+        return authService.login(request);
     }
 
-    @Data
-    public static class LoginRequest {
-        @NotBlank private String username;
-        @NotBlank private String password;
-    }
-
-    @Data
-    public static class TokenResponse {
-        private final String accessToken;
-        private final String tokenType;
+    @Override
+    public CurrentUserResponse current() {
+        return authService.current();
     }
 }

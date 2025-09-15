@@ -12,7 +12,6 @@ import ru.nicetu.crtris.crtrisbackend.service.ContactsService;
 
 @Service
 @RequiredArgsConstructor
-@Transactional(readOnly = true)
 public class ContactsServiceImpl implements ContactsService {
 
     private final ContactsRepository repository;

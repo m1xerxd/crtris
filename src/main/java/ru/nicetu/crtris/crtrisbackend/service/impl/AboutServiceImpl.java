@@ -18,7 +18,6 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-@Transactional(readOnly = true)
 public class AboutServiceImpl implements AboutService {
 
     private final AboutUsRepository aboutUsRepository;

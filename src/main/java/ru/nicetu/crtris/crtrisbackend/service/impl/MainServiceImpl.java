@@ -19,7 +19,6 @@ import java.util.Objects;
 
 @Service
 @RequiredArgsConstructor
-@Transactional(readOnly = true)
 public class MainServiceImpl implements MainService {
 
     private final MainRepository mainRepository;

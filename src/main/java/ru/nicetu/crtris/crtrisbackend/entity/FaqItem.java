@@ -14,8 +14,8 @@ import lombok.*;
 @Builder
 public class FaqItem extends BaseEvent{
 
-    @Column(name = "title", nullable = false)
-    private String title;
+    @Column(name = "question", nullable = false)
+    private String question;
 
     @Column(name = "answer", columnDefinition = "text")
     private String answer;
