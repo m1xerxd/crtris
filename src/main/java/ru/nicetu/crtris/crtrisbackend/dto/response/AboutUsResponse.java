@@ -5,7 +5,8 @@ import lombok.Data;
 
 import java.util.List;
 
-@Data @AllArgsConstructor
+@Data
+@AllArgsConstructor
 public class AboutUsResponse {
     private String description;
     private List<CompanyValueResponse> companyValues;
