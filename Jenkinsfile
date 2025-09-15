@@ -1,4 +1,3 @@
-#!/usr/bin/env groovy
 
 pipeline{
     agent any
@@ -27,23 +26,23 @@ pipeline{
 
         stage("Build and Test"){
             steps{
-                sh 'mvn clean package'
+                bat 'mvn clean package'
             }
         }
 
         stage("Build docker image"){
             steps{
-                sh "docker build -t ${DOCKER_IMAGE}:latest ."
+                bat "docker build -t ${DOCKER_IMAGE}:latest ."
 
-                sh "docker images | grep ${DOCKER_IMAGE}"
+                bat "docker images | grep ${DOCKER_IMAGE}"
             }
         }
 
         stage("Deploy"){
             steps{
                 script{
-                    sh 'docker compose down || true'
-                    sh 'docker compose up -d'
+                    bat 'docker compose down || true'
+                    bat 'docker compose up -d'
                 }
             }
         }
