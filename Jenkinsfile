@@ -1,3 +1,11 @@
+#!/usr/bin/env groovy
+
+@SuppressWarnings('NoSandbox')
+properties([
+    parameters([]),
+    pipelineTriggers([]),
+    disableConcurrentBuilds()
+])
 pipeline{
     agent any
 
