@@ -1,14 +1,12 @@
 #!/usr/bin/env groovy
 
-@SuppressWarnings('NoSandbox')
-properties([
-    parameters([]),
-    pipelineTriggers([]),
-    disableConcurrentBuilds()
-])
 pipeline{
     agent any
 
+    options{
+        skipDefaultCheckout(false)
+        timeout(time: 1, unit: 'HOURS')
+    }
     tools{
         maven 'M3'
         jdk 'JDK17'
