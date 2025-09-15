@@ -9,7 +9,7 @@ pipeline{
         maven 'M3'
         jdk 'JDK17'
     }
-
+    //test
     environment{
         APP_NAME = 'crtris-backend'
         DOCKER_IMAGE = 'crtris-backend'
