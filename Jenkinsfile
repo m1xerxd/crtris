@@ -21,14 +21,14 @@ pipeline{
 
         stage("Build and Test"){
             steps{
-                sh 'mvn clean packages'
+                sh 'mvn clean package'
             }
         }
 
         stage("Build docker image"){
             steps{
                 script{
-                    docker.build("${DOCKER_IMAGE}:latest")
+                    docker.build("${DOCKER_IMAGE}:latest", ".")
                 }
             }
         }
@@ -36,7 +36,7 @@ pipeline{
         stage("Deploy"){
             steps{
                 script{
-                    sh 'docker compose down'
+                    sh 'docker compose down || true'
                     sh 'docker compose up -d'
                 }
             }
