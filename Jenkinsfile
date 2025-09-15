@@ -34,7 +34,7 @@ pipeline{
             steps{
                 bat "docker build -t ${DOCKER_IMAGE}:latest ."
 
-                bat "docker images | grep ${DOCKER_IMAGE}"
+                bat "docker images"
             }
         }
 
