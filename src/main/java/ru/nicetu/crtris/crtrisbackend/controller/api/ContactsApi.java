@@ -6,7 +6,12 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import ru.nicetu.crtris.crtrisbackend.dto.request.ContactsRequest;
 import ru.nicetu.crtris.crtrisbackend.dto.response.ContactsResponse;
 
@@ -14,33 +19,27 @@ import ru.nicetu.crtris.crtrisbackend.dto.response.ContactsResponse;
 @RequestMapping("/contacts")
 public interface ContactsApi {
 
-    @Operation(summary = "Публично: получить все контакты")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Контакты получены"),
-            @ApiResponse(responseCode = "404", description = "Контакты не найдены:(")
-    })
+    @Operation(summary = "Публично: получить контактные данные")
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     ContactsResponse get();
 
     @Operation(summary = "Admin: обновить контактные данные")
-    @ApiResponses(value = {
+    @ApiResponses({
             @ApiResponse(responseCode = "200", description = "Контакты обновлены"),
             @ApiResponse(responseCode = "400", description = "Некорректные данные"),
             @ApiResponse(responseCode = "401", description = "Не авторизован"),
-            @ApiResponse(responseCode = "403", description = "Недостаточно прав"),
-            @ApiResponse(responseCode = "404", description = "Не найдено")
+            @ApiResponse(responseCode = "403", description = "Недостаточно прав")
     })
     @PutMapping
     @ResponseStatus(HttpStatus.OK)
     ContactsResponse update(@Valid @RequestBody ContactsRequest request);
 
-    @Operation(summary = "Admin: удалить контакнтые данные")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Контакты удалены"),
+    @Operation(summary = "Admin: удалить контактные данные")
+    @ApiResponses({
+            @ApiResponse(responseCode = "204", description = "Контакты удалены"),
             @ApiResponse(responseCode = "401", description = "Не авторизован"),
-            @ApiResponse(responseCode = "403", description = "Недостаточно прав"),
-            @ApiResponse(responseCode = "404", description = "Не найдено")
+            @ApiResponse(responseCode = "403", description = "Недостаточно прав")
     })
     @DeleteMapping
     @ResponseStatus(HttpStatus.NO_CONTENT)

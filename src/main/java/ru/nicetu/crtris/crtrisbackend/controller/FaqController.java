@@ -3,7 +3,6 @@ package ru.nicetu.crtris.crtrisbackend.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.RestController;
-
 import ru.nicetu.crtris.crtrisbackend.controller.api.FaqApi;
 import ru.nicetu.crtris.crtrisbackend.dto.request.FaqItemRequest;
 import ru.nicetu.crtris.crtrisbackend.dto.response.FaqItemResponse;

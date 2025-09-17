@@ -1,12 +1,12 @@
-package ru.nicetu.crtris.crtrisbackend.controller.impl;
+package ru.nicetu.crtris.crtrisbackend.controller;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import ru.nicetu.crtris.crtrisbackend.controller.api.AuthApi;
 import ru.nicetu.crtris.crtrisbackend.dto.request.LoginRequest;
-import ru.nicetu.crtris.crtrisbackend.dto.response.TokenResponse;
-import ru.nicetu.crtris.crtrisbackend.dto.response.CurrentUserResponse;
+import ru.nicetu.crtris.crtrisbackend.dto.response.JwtAuthenticationResponse;
 import ru.nicetu.crtris.crtrisbackend.service.AuthService;
 
 @RestController
@@ -16,12 +16,8 @@ public class AuthController implements AuthApi {
     private final AuthService authService;
 
     @Override
-    public TokenResponse login(LoginRequest request) {
-        return authService.login(request);
-    }
-
-    @Override
-    public CurrentUserResponse current() {
-        return authService.current();
+    public JwtAuthenticationResponse login(@Valid @RequestBody LoginRequest req) {
+        String token = authService.login(req);
+        return new JwtAuthenticationResponse(token);
     }
 }

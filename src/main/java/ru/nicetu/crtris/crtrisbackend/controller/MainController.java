@@ -3,12 +3,11 @@ package ru.nicetu.crtris.crtrisbackend.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.RestController;
-
 import ru.nicetu.crtris.crtrisbackend.controller.api.MainApi;
-import ru.nicetu.crtris.crtrisbackend.dto.request.MainUpdateRequest;
 import ru.nicetu.crtris.crtrisbackend.dto.request.MainInfoRequest;
-import ru.nicetu.crtris.crtrisbackend.dto.response.MainResponse;
+import ru.nicetu.crtris.crtrisbackend.dto.request.MainUpdateRequest;
 import ru.nicetu.crtris.crtrisbackend.dto.response.MainInfoResponse;
+import ru.nicetu.crtris.crtrisbackend.dto.response.MainResponse;
 import ru.nicetu.crtris.crtrisbackend.service.MainService;
 
 import java.util.List;
