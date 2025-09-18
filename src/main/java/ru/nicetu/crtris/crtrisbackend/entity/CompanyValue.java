@@ -28,6 +28,6 @@ public class CompanyValue extends BaseEvent{
     private Integer position;
 
     @ManyToOne(optional = false, fetch = FetchType.LAZY)
-    @JoinColumn(name = "about_id")
+    @JoinColumn(name = "about_us_id", nullable = false)
     private AboutUs aboutUs;
 }

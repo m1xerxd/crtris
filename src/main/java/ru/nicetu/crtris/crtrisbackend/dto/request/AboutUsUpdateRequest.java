@@ -9,6 +9,5 @@ public record AboutUsUpdateRequest(
         String description,
 
         @NotNull
-        @Valid
         List<CompanyValueRequest> companyValues
 ) {}

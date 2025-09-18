@@ -18,7 +18,6 @@ public class ContactsController implements ContactsApi {
         return service.get();
     }
 
-
     @Override
     @PreAuthorize("hasRole('ADMIN')")
     public ContactsResponse update(ContactsRequest request) {

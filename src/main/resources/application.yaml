@@ -3,15 +3,15 @@ spring:
     name: crtris-backend
 
   datasource:
-    url: ${DB_URL:jdbc:postgresql://localhost:5432/crtris}
-    username: ${DB_USERNAME:postgres}
-    password: ${DB_PASSWORD:postgres}
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
     driver-class-name: org.postgresql.Driver
 
   jpa:
     open-in-view: false
     hibernate:
-      ddl-auto: ${JPA_DDL_AUTO:none}
+      ddl-auto: ${JPA_DDL_AUTO}
     properties:
       hibernate:
         format_sql: true
@@ -19,12 +19,12 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
 
   flyway:
-    enabled: ${FLYWAY_ENABLED:true}
+    enabled: ${FLYWAY_ENABLED}
     locations: classpath:db/migration
     baseline-on-migrate: true
 
 server:
-  port: ${SERVER_PORT:8080}
+  port: ${SERVER_PORT}
 
 logging:
   level:
@@ -32,10 +32,10 @@ logging:
 
 security:
   jwt:
-    secret: ${JWT_SECRET:qwertyuiopasdfghjklzxcvbnm1234567890QWERTYUIOPASDF}
-    expiration: ${JWT_EXPIRATION:PT60M}
+    secret: ${JWT_SECRET}
+    expiration: ${JWT_EXPIRATION}
 
 cors:
   allowed-origins:
-    - ${CORS_ORIGIN_1:http://localhost:3000}
-    - ${CORS_ORIGIN_2:http://localhost:5173}
+    - ${CORS_ORIGIN_1}
+    - ${CORS_ORIGIN_2}

@@ -19,7 +19,7 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public String login(LoginRequest request) {
-        var u = users.findByEmail(request.username())
+        var u = users.findByEmail(request.email())
                 .orElseThrow(() -> new BadCredentialsException("Неверные учётные данные"));
 
         if (!u.isEnabled() || !encoder.matches(request.password(), u.getPasswordHash())) {
