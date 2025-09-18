@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: crtris-backend
+
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: ${JPA_DDL_AUTO}
+    properties:
+      hibernate:
+        format_sql: true
+        jdbc.time_zone: UTC
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  flyway:
+    enabled: ${FLYWAY_ENABLED}
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+
+server:
+  port: ${SERVER_PORT}
+
+logging:
+  level:
+    org.springframework.security: info
+
+security:
+  jwt:
+    secret: ${JWT_SECRET}
+    expiration: ${JWT_EXPIRATION}
+
+cors:
+  allowed-origins:
+    - ${CORS_ORIGIN_1}
+    - ${CORS_ORIGIN_2}
