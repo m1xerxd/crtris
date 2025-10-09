@@ -9,13 +9,19 @@ public record ReviewRequest(
         @Size(max = 255)
         String name,
 
+        @Size(max = 255)
+        String avatar,
+
         @NotBlank
         @Size(max = 10_000)
         String description,
 
-        @NotBlank
         @Size(max = 10_000)
         String text,
+
+        @NotBlank
+        @Size(max = 256)
+        String jobTitle,
 
         @PositiveOrZero
         Integer position
