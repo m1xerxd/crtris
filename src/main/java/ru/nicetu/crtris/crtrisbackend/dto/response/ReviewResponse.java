@@ -6,5 +6,6 @@ public record ReviewResponse(
         String avatar,
         String description,
         String text,
+        String jobTitle,
         Integer position
 ) {}

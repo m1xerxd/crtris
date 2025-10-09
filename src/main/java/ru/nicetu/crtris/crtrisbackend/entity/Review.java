@@ -30,6 +30,9 @@ public class Review extends BaseEvent{
     @Column(name = "text", columnDefinition = "text", nullable = false)
     private String text;
 
+    @Column(name = "job_title")
+    private String jobTitle;
+
     @Column(name = "position")
     private Integer position;
 }
