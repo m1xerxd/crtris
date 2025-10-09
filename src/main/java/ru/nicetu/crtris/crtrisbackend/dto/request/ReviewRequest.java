@@ -10,6 +10,10 @@ public record ReviewRequest(
         String name,
 
         @NotBlank
+        @Size(max = 255)
+        String avatar,
+
+        @NotBlank
         @Size(max = 10_000)
         String description,
 
