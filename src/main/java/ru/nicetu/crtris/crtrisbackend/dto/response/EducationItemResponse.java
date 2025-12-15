@@ -5,4 +5,5 @@ public record EducationItemResponse(
         String title,
         String description,
         Integer position
-) {}
+) {
+}

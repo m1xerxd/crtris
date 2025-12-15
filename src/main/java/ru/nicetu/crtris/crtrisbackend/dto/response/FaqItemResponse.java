@@ -5,4 +5,5 @@ public record FaqItemResponse(
         String question,
         String answer,
         Integer position
-) {}
+) {
+}

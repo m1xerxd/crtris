@@ -14,4 +14,5 @@ public record EducationItemRequest(
 
         @PositiveOrZero
         Integer position
-) {}
+) {
+}

@@ -5,4 +5,5 @@ public record MainInfoResponse(
         String name,
         String value,
         Integer position
-) {}
+) {
+}

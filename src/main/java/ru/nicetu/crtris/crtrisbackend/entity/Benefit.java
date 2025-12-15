@@ -16,7 +16,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Benefit extends BaseEvent{
+public class Benefit extends BaseEvent {
 
     @Column(name = "description", columnDefinition = "text", nullable = false)
     private String description;

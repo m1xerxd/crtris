@@ -11,4 +11,5 @@ public record BenefitRequest(
 
         @PositiveOrZero
         Integer position
-) {}
+) {
+}

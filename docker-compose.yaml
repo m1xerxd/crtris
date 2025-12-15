@@ -10,6 +10,8 @@ services:
     depends_on:
       - postgres
     restart: unless-stopped
+    volumes:
+      - ./uploads:/app/uploads
 
   postgres:
     image: postgres:13

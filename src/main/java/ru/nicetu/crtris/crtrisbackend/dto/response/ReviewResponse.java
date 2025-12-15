@@ -8,4 +8,5 @@ public record ReviewResponse(
         String text,
         String jobTitle,
         Integer position
-) {}
+) {
+}

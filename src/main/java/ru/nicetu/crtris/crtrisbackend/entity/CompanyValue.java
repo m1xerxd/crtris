@@ -19,7 +19,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class CompanyValue extends BaseEvent{
+public class CompanyValue extends BaseEvent {
 
     @Column(nullable = false)
     private String title;

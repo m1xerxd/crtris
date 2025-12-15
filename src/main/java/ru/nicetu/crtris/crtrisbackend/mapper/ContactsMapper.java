@@ -10,6 +10,7 @@ import ru.nicetu.crtris.crtrisbackend.entity.Contacts;
 @Mapper(config = MapStructConfig.class)
 public interface ContactsMapper {
     Contacts toEntity(ContactsRequest req);
+
     ContactsResponse toResponse(Contacts e);
 
     @Mapping(target = "id", ignore = true)

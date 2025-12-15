@@ -14,4 +14,5 @@ public record FaqItemRequest(
 
         @PositiveOrZero
         Integer position
-) {}
+) {
+}

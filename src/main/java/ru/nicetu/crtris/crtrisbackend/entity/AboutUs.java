@@ -23,7 +23,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class AboutUs extends BaseEvent{
+public class AboutUs extends BaseEvent {
 
     @Column
     private String description;

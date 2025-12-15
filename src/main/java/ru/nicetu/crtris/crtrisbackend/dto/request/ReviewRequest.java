@@ -1,16 +1,16 @@
 package ru.nicetu.crtris.crtrisbackend.dto.request;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.PositiveOrZero;
 import jakarta.validation.constraints.Size;
+import org.springframework.web.multipart.MultipartFile;
 
+@Schema(name = "ReviewRequest")
 public record ReviewRequest(
         @NotBlank
         @Size(max = 255)
         String name,
-
-        @Size(max = 255)
-        String avatar,
 
         @NotBlank
         @Size(max = 10_000)
@@ -25,4 +25,5 @@ public record ReviewRequest(
 
         @PositiveOrZero
         Integer position
-) {}
+) {
+}

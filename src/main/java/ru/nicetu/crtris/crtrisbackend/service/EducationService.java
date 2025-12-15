@@ -7,8 +7,12 @@ import java.util.List;
 
 public interface EducationService {
     List<EducationItemResponse> findAll();
+
     EducationItemResponse findById(Long id);
+
     EducationItemResponse create(EducationItemRequest educationItemRequest);
+
     EducationItemResponse update(Long id, EducationItemRequest educationItemRequest);
+
     void delete(Long id);
 }

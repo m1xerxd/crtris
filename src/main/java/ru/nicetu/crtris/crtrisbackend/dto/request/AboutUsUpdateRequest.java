@@ -10,4 +10,5 @@ public record AboutUsUpdateRequest(
 
         @NotNull
         List<CompanyValueRequest> companyValues
-) {}
+) {
+}

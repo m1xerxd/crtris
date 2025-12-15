@@ -14,6 +14,7 @@ import ru.nicetu.crtris.crtrisbackend.entity.MainInfo;
 public interface MainMapper {
 
     MainResponse toMainResponse(Main main);
+
     MainInfoResponse toMainInfoResponse(MainInfo info);
 
     MainInfo toEntity(MainInfoRequest request);

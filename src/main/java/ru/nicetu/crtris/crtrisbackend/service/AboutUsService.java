@@ -6,5 +6,6 @@ import ru.nicetu.crtris.crtrisbackend.dto.response.AboutUsResponse;
 public interface AboutUsService {
 
     AboutUsResponse get();
+
     AboutUsResponse update(AboutUsUpdateRequest request);
 }

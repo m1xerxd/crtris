@@ -25,6 +25,7 @@ public interface AboutUsMapper {
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "createdAt", ignore = true)
     @Mapping(target = "updatedAt", ignore = true)
-    @Mapping(target = "companyValues", ignore = true) // список обновляем вручную в сервисе
+    @Mapping(target = "companyValues", ignore = true)
+        // список обновляем вручную в сервисе
     void update(@MappingTarget AboutUs aboutUs, AboutUsUpdateRequest request);
 }

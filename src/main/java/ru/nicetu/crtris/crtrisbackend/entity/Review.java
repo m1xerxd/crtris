@@ -16,7 +16,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Review extends BaseEvent{
+public class Review extends BaseEvent {
 
     @Column(name = "description", columnDefinition = "text", nullable = false)
     private String description;
@@ -24,7 +24,7 @@ public class Review extends BaseEvent{
     @Column(name = "name", nullable = false)
     private String name;
 
-    @Column(name = "avatar")
+    @Column(name = "avatar", length = 500)
     private String avatar;
 
     @Column(name = "text", columnDefinition = "text", nullable = false)
