@@ -18,7 +18,7 @@ public class EducationController implements EducationApi {
     private final EducationService service;
 
     @Override
-    public List<EducationItemResponse> findAll(){
+    public List<EducationItemResponse> findAll() {
         return service.findAll();
     }
 

@@ -9,4 +9,5 @@ public record CompanyValueRequest(
 
         @NotNull
         Integer position
-) {}
+) {
+}

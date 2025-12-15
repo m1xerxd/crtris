@@ -5,4 +5,5 @@ import java.util.List;
 public record MainResponse(
         String description,
         List<MainInfoResponse> info
-) {}
+) {
+}

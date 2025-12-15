@@ -7,8 +7,12 @@ import java.util.List;
 
 public interface BenefitService {
     List<BenefitResponse> findAll();
+
     BenefitResponse findById(Long id);
+
     BenefitResponse create(BenefitRequest req);
+
     BenefitResponse update(Long id, BenefitRequest req);
+
     void delete(Long id);
 }

@@ -10,6 +10,7 @@ import ru.nicetu.crtris.crtrisbackend.entity.FaqItem;
 @Mapper(config = MapStructConfig.class)
 public interface FaqMapper {
     FaqItem toEntity(FaqItemRequest req);
+
     FaqItemResponse toResponse(FaqItem e);
 
     @Mapping(target = "id", ignore = true)

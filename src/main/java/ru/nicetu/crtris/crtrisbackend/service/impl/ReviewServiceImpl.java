@@ -3,6 +3,7 @@ package ru.nicetu.crtris.crtrisbackend.service.impl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 import ru.nicetu.crtris.crtrisbackend.dto.request.ReviewRequest;
 import ru.nicetu.crtris.crtrisbackend.dto.response.ReviewResponse;
 import ru.nicetu.crtris.crtrisbackend.entity.Review;
@@ -19,6 +20,7 @@ public class ReviewServiceImpl implements ReviewService {
 
     private final ReviewRepository repository;
     private final ReviewMapper mapper;
+    private final FileStorageService fileStorageService;
 
     @Override
     @Transactional(readOnly = true)
@@ -39,21 +41,34 @@ public class ReviewServiceImpl implements ReviewService {
 
     @Override
     @Transactional
-    public ReviewResponse create(ReviewRequest request) {
+    public ReviewResponse create(ReviewRequest request, MultipartFile avatar) {
         Review review = mapper.toEntity(request);
+
+        if (avatar != null && !avatar.isEmpty()) {
+            review.setAvatar(fileStorageService.storeReviewAvatar(avatar));
+        } else {
+            review.setAvatar("/assets/reviews/default.png");
+        }
+
         review = repository.save(review);
         return mapper.toResponse(review);
     }
 
     @Override
     @Transactional
-    public ReviewResponse update(Long id, ReviewRequest request) {
+    public ReviewResponse update(Long id, ReviewRequest request, MultipartFile avatar) {
         Review review = repository.findById(id)
                 .orElseThrow(() -> new NotFoundException("Review не найдено: " + id));
+
         mapper.update(review, request);
-        review = repository.save(review);
-        return mapper.toResponse(review);
+
+        if (avatar != null && !avatar.isEmpty()) {
+            review.setAvatar(fileStorageService.storeReviewAvatar(avatar));
+        }
+
+        return mapper.toResponse(repository.save(review));
     }
+
 
     @Override
     @Transactional

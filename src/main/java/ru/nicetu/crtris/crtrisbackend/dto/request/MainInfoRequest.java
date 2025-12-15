@@ -14,4 +14,5 @@ public record MainInfoRequest(
 
         @PositiveOrZero
         Integer position
-) {}
+) {
+}

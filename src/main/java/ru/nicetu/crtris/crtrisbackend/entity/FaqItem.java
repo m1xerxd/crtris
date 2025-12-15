@@ -16,7 +16,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class FaqItem extends BaseEvent{
+public class FaqItem extends BaseEvent {
 
     @Column(name = "question", nullable = false)
     private String question;

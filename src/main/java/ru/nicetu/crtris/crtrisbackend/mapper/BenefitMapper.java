@@ -10,6 +10,7 @@ import ru.nicetu.crtris.crtrisbackend.entity.Benefit;
 @Mapper(config = MapStructConfig.class)
 public interface BenefitMapper {
     Benefit toEntity(BenefitRequest req);
+
     BenefitResponse toResponse(Benefit e);
 
     @Mapping(target = "id", ignore = true)

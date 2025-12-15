@@ -22,7 +22,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Main extends BaseEvent{
+public class Main extends BaseEvent {
 
     @Column(name = "description", columnDefinition = "text")
     private String description;

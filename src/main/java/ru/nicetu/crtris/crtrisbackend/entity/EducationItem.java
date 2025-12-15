@@ -16,7 +16,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class EducationItem extends BaseEvent{
+public class EducationItem extends BaseEvent {
 
     @Column(nullable = false)
     private String title;

@@ -4,4 +4,5 @@ public record BenefitResponse(
         Long id,
         String description,
         Integer position
-) {}
+) {
+}

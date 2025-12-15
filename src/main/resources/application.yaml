@@ -1,6 +1,9 @@
 spring:
   application:
     name: crtris-backend
+  web:
+    resources:
+      static-locations: classpath:/static/
 
   datasource:
     url: ${DB_URL}

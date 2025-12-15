@@ -4,4 +4,5 @@ public record ContactsResponse(
         String phoneNumber,
         String telegram,
         String email
-) {}
+) {
+}

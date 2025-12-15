@@ -10,6 +10,7 @@ import ru.nicetu.crtris.crtrisbackend.entity.EducationItem;
 @Mapper(config = MapStructConfig.class)
 public interface EducationMapper {
     EducationItem toEntity(EducationItemRequest req);
+
     EducationItemResponse toResponse(EducationItem e);
 
     @Mapping(target = "id", ignore = true)
